@@ -1,0 +1,51 @@
+.spin-container {
+	perspective: 1000px;
+	width: 100px;
+	margin: auto;
+	height: 150px;
+	.rotator {
+		animation-name: spinning;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+		transform-style: preserve-3d;
+		width: 100px;
+		height: 150px;
+		span {
+			display: block;
+			position: absolute;
+			transform-style: preserve-3d;
+			text-align: center;
+			overflow: hidden;
+			width: 100px;
+			height: 150px;
+			&:nth-child(1) {
+				transform: rotateX(0deg) translateZ(120px);
+			}
+			&:nth-child(2) {
+				transform: rotateX(72deg) translateZ(120px);
+			}
+			&:nth-child(3) {
+				transform: rotateX(144deg) translateZ(120px);
+			}
+			&:nth-child(4) {
+				transform: rotateX(216deg) translateZ(120px);
+			}
+			&:nth-child(5) {
+				transform: rotateX(288deg) translateZ(120px);
+			}
+		}
+	}
+
+	@keyframes spinning {
+		0% {
+			transform: rotateX(0deg);
+		}
+		50% {
+			transform: rotateX(719deg);
+		}
+
+		100% {
+			transform: rotateX(1420deg);
+		}
+	}
+}

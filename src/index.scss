@@ -1,0 +1,19 @@
+@font-face {
+	font-family: liliput;
+	src: url(./assets/font/lilliputsteps.ttf);
+}
+
+body {
+	background: radial-gradient(#3d1541, #230e28);
+	margin: auto;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	//background-size: contain;
+}
+
+html {
+	min-height: 100vh;
+	min-width: 100vw;
+	display: grid;
+}
