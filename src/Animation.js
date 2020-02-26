@@ -9,19 +9,19 @@ class Animation extends Component {
 			<div className="spin-container">
 				<div style={time} className="rotator">
 					<span>
-						<img alt="clock" src={require('./assets/originals/clock.png')} />
+						<img alt="clock" src={require('./assets/clock.png')} />
 					</span>
 					<span>
-						<img alt="knoxon" src={require('./assets/originals/knoxon.png')} />
+						<img alt="knoxon" src={require('./assets/knoxon.png')} />
 					</span>
 					<span>
-						<img alt="terminal" src={require('./assets/originals/terminal.png')} />
+						<img alt="terminal" src={require('./assets/terminal.png')} />
 					</span>
 					<span>
-						<img alt="router" src={require('./assets/originals/router.png')} />
+						<img alt="router" src={require('./assets/router.png')} />
 					</span>
 					<span>
-						<img alt="server" src={require('./assets/originals/server.png')} />
+						<img alt="server" src={require('./assets/server.png')} />
 					</span>
 				</div>
 			</div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './Machine.scss';
 import Slot from './Slot';
 import Animation from './Animation';
 import './Animation.scss';
@@ -27,7 +27,13 @@ class Machine extends Component {
 			startgame: false,
 			slot1: 'knoxon',
 			slot2: 'terminal',
-			slot3: 'knoxon'
+			slot3: 'server',
+			slot4: 'clock',
+			slot5: 'server',
+			slot6: 'knoxon',
+			slot7: 'terminal',
+			slot8: 'router',
+			slot9: 'clock'
 		};
 		this.spin = this.spin.bind(this);
 		this.handleChange = this.handleChange.bind(this);
@@ -48,14 +54,30 @@ class Machine extends Component {
 			const newSlot1 = this.props.slots[Math.floor(Math.random() * this.props.slots.length)];
 			const newSlot2 = this.props.slots[Math.floor(Math.random() * this.props.slots.length)];
 			const newSlot3 = this.props.slots[Math.floor(Math.random() * this.props.slots.length)];
-			this.setState({ slot1: newSlot1, slot2: newSlot2, slot3: newSlot3 });
+			const newSlot4 = this.props.slots[Math.floor(Math.random() * this.props.slots.length)];
+			const newSlot5 = this.props.slots[Math.floor(Math.random() * this.props.slots.length)];
+			const newSlot6 = this.props.slots[Math.floor(Math.random() * this.props.slots.length)];
+			const newSlot7 = this.props.slots[Math.floor(Math.random() * this.props.slots.length)];
+			const newSlot8 = this.props.slots[Math.floor(Math.random() * this.props.slots.length)];
+			const newSlot9 = this.props.slots[Math.floor(Math.random() * this.props.slots.length)];
+			this.setState({
+				slot1: newSlot1,
+				slot2: newSlot2, //mid slot
+				slot3: newSlot3,
+				slot4: newSlot4,
+				slot5: newSlot5, //mid slot
+				slot6: newSlot6,
+				slot7: newSlot7,
+				slot8: newSlot8, //mid slot
+				slot9: newSlot9
+			});
 
 			if (newScore < 10) {
 				this.setState({ playable: false, startgame: false });
 			}
 			//winning
 			//win rate: (5/125)*100 = 4%
-			if (newSlot1 === newSlot2 && newSlot2 === newSlot3) {
+			if (newSlot2 === newSlot5 && newSlot5 === newSlot8) {
 				this.setState({ isWinner: true });
 				let winScore = Math.floor(this.state.score + 50);
 				winAudio.play();
@@ -104,17 +126,32 @@ class Machine extends Component {
 					{this.state.spinning ? (
 						<Animation speed="2.3" className="anim" />
 					) : (
-						<Slot className="slot" slotimg={this.state.slot1} />
+						<Slot
+							className="slot"
+							slotimg1={this.state.slot1}
+							slotimg2={this.state.slot2}
+							slotimg3={this.state.slot3}
+						/>
 					)}
 					{this.state.spinning ? (
 						<Animation speed="2.5" className="anim" />
 					) : (
-						<Slot className="slot" slotimg={this.state.slot2} />
+						<Slot
+							className="slot"
+							slotimg1={this.state.slot4}
+							slotimg2={this.state.slot5}
+							slotimg3={this.state.slot6}
+						/>
 					)}
 					{this.state.spinning ? (
 						<Animation speed="2.1" className="anim" />
 					) : (
-						<Slot className="slot" slotimg={this.state.slot3} />
+						<Slot
+							className="slot"
+							slotimg1={this.state.slot7}
+							slotimg2={this.state.slot8}
+							slotimg3={this.state.slot9}
+						/>
 					)}
 				</div>
 				<button onClick={this.spin} disabled={this.state.spinning || !this.state.startgame} className="spin">

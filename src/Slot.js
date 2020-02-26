@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './Slot.scss';
 // const knoxon = require('./assets/knoxon.png');
 // const terminal = require('./assets/terminal.png');
 // const server = require('./assets/server.png');
@@ -8,7 +8,13 @@ import React, { Component } from 'react';
 
 class Slot extends Component {
 	render() {
-		return <img className="slot" alt="slot" src={require(`./assets/${this.props.slotimg}.png`)} />;
+		return (
+			<div className="slot-imgs">
+				<img alt="slot" src={require(`./assets/${this.props.slotimg1}.png`)} />
+				<img alt="slot" src={require(`./assets/${this.props.slotimg2}.png`)} />
+				<img alt="slot" src={require(`./assets/${this.props.slotimg3}.png`)} />
+			</div>
+		);
 	}
 }
 
