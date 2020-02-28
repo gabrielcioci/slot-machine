@@ -42,8 +42,7 @@ class Machine extends Component {
 
 	spin() {
 		this.setState({ spinning: true });
-		const newScore = this.state.score - 10;
-		this.setState({ score: newScore });
+		this.setState((ns) => ({ score: ns.score - 10 }));
 		spinAudio.play();
 
 		//spin timer
@@ -72,16 +71,15 @@ class Machine extends Component {
 				slot9: newSlot9
 			});
 
-			if (newScore < 10) {
+			if (this.state.score < 10) {
 				this.setState({ playable: false, startgame: false });
 			}
 			//winning
 			//win rate: (5/125)*100 = 4%
 			if (newSlot2 === newSlot5 && newSlot5 === newSlot8) {
 				this.setState({ isWinner: true });
-				let winScore = Math.floor(this.state.score + 50);
+				this.setState((ws) => ({ score: ws.score + 50 }));
 				winAudio.play();
-				this.setState({ score: winScore });
 			} else {
 				this.setState({ isWinner: false });
 				loseAudio.play();
